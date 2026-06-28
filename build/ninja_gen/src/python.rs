@@ -61,6 +61,12 @@ pub fn uv_archive(platform: Platform) -> OnlineArchive {
                 sha256: "bb40708ad549ad6a12209cb139dd751bf0ede41deb679ce7513ce197bd9ef234",
             }
         }
+        Platform::LinuxLoong64 => {
+            OnlineArchive {
+                url: "https://github.com/astral-sh/uv/releases/download/0.7.13/uv-x86_64-unknown-linux-gnu.tar.gz",
+                sha256: "e011ddad353d84d86f5060308d09c08f66b0eac6bf30b268dc63f7959f0e5e6d",
+            }
+        },
     }
 }
 

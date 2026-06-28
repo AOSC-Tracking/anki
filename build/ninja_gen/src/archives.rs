@@ -23,6 +23,7 @@ pub struct OnlineArchive {
 pub enum Platform {
     LinuxX64,
     LinuxArm,
+    LinuxLoong64,
     MacX64,
     MacArm,
     WindowsX64,
@@ -36,6 +37,7 @@ impl Platform {
         match (os, arch) {
             ("linux", "x86_64") => Self::LinuxX64,
             ("linux", "aarch64") => Self::LinuxArm,
+            ("linux", "loongarch64") => Self::LinuxLoong64,
             ("macos", "x86_64") => Self::MacX64,
             ("macos", "aarch64") => Self::MacArm,
             ("windows", "x86_64") => Self::WindowsX64,
@@ -49,7 +51,7 @@ impl Platform {
             // On Linux, wheels are not allowed to link to OpenSSL, and linking setup
             // caused pain for AnkiDroid in the past. On other platforms, we stick to
             // native libraries, for smaller binaries.
-            Platform::LinuxX64 | Platform::LinuxArm => "rustls",
+            Platform::LinuxX64 | Platform::LinuxArm | Platform::LinuxLoong64 => "rustls",
             _ => "native-tls",
         }
     }
@@ -58,6 +60,7 @@ impl Platform {
         match self {
             Platform::LinuxX64 => "x86_64-unknown-linux-gnu",
             Platform::LinuxArm => "aarch64-unknown-linux-gnu",
+            Platform::LinuxLoong64 => "loongarch64-unknown-linux-gnu",
             Platform::MacX64 => "x86_64-apple-darwin",
             Platform::MacArm => "aarch64-apple-darwin",
             Platform::WindowsX64 => "x86_64-pc-windows-msvc",

@@ -43,6 +43,12 @@ pub fn protoc_archive(platform: Platform) -> OnlineArchive {
                 sha256: "70381b116ab0d71cb6a5177d9b17c7c13415866603a0fd40d513dafe32d56c35",
             }
         }
+        Platform::LinuxLoong64 => {
+            OnlineArchive {
+                url: "https://github.com/protocolbuffers/protobuf/releases/download/v31.1/protoc-31.1-linux-x86_64.zip",
+                sha256: "96553041f1a91ea0efee963cb16f462f5985b4d65365f3907414c360044d8065",
+            }
+        },
     }
 }
 
@@ -56,6 +62,13 @@ fn clang_format_archive(platform: Platform) -> OnlineArchive {
         }
         Platform::LinuxArm => {
             // todo: replace with arm64 binary
+            OnlineArchive {
+                url: "https://github.com/ankitects/clang-format-binaries/releases/download/anki-2021-01-09/clang-format_linux_x86_64.zip",
+                sha256: "64060bc4dbca30d0d96aab9344e2783008b16e1cae019a2532f1126ca5ec5449",
+            }
+        }
+        Platform::LinuxLoong64 => {
+            // todo: replace with loong64 binary
             OnlineArchive {
                 url: "https://github.com/ankitects/clang-format-binaries/releases/download/anki-2021-01-09/clang-format_linux_x86_64.zip",
                 sha256: "64060bc4dbca30d0d96aab9344e2783008b16e1cae019a2532f1126ca5ec5449",
