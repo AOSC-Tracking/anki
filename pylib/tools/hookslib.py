@@ -205,4 +205,3 @@ def write_file(path: str, hooks: list[Hook], prefix: str, suffix: str):
 
     with open(path, "wb") as file:
         file.write(code.encode("utf8"))
-    subprocess.run([sys.executable, "-m", "ruff", "format", "-q", path], check=True)
