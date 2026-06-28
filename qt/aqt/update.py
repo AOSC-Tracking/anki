@@ -19,6 +19,8 @@ from aqt.utils import openLink, show_warning, showText, tr
 
 
 def check_for_update() -> None:
+    return
+
     from aqt import mw
 
     def do_check(_col: Collection) -> CheckForUpdateResponse:
