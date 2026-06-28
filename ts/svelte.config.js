@@ -1,5 +1,6 @@
 import adapter from "@sveltejs/adapter-static";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
+import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import preprocess from "svelte-preprocess";
 import { fileURLToPath } from "url";
@@ -17,6 +18,9 @@ const config = {
         adapter: adapter(
             { pages: "../out/sveltekit", fallback: "index.html", precompress: false },
         ),
+        version: {
+            name: readFileSync(join(tsFolder, "../.version"), "utf-8").trim(),
+        },
         alias: {
             "@tslib": join(tsFolder, "lib/tslib"),
             "@generated": join(tsFolder, "../out/ts/lib/generated"),
