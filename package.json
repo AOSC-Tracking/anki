@@ -92,6 +92,5 @@
         "Chrome 77",
         "iOS 14.5"
     ],
-    "type": "module",
-    "packageManager": "yarn@4.6.0"
+    "type": "module"
 }

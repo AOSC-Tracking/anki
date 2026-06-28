@@ -52,7 +52,7 @@ impl BuildAction for YarnSetup {
         if cfg!(windows) {
             "corepack.cmd enable yarn"
         } else {
-            "corepack enable yarn"
+            "true"
         }
     }
 
