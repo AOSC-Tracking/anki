@@ -156,6 +156,7 @@ impl BuildAction for BuildWheel {
                 Platform::MacArm => "macosx_12_0_arm64",
                 Platform::WindowsX64 => "win_amd64",
                 Platform::WindowsArm => "win_arm64",
+                Platform::LinuxLoong64 => "manylinux_2_36_loongarch64",
             };
             format!("cp310-abi3-{platform_tag}")
         } else {

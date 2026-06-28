@@ -42,6 +42,10 @@ pub fn node_archive(platform: Platform) -> OnlineArchive {
             url: "https://nodejs.org/dist/v22.17.0/node-v22.17.0-win-arm64.zip",
             sha256: "78355dc9ca117bb71d3f081e4b1b281855e2b134f3939bb0ca314f7567b0e621",
         },
+        Platform::LinuxLoong64 => OnlineArchive {
+            url: "https://nodejs.org/dist/v22.17.0/node-v22.17.0-linux-x64.tar.xz",
+            sha256: "325c0f1261e0c61bcae369a1274028e9cfb7ab7949c05512c5b1e630f7e80e12",
+        },
     }
 }
 

@@ -44,6 +44,8 @@ pub fn get_uv_binary_name() -> &'static str {
         "uv"
     } else if cfg!(target_arch = "x86_64") {
         "uv.amd64"
+    } else if cfg!(target_arch = "loongarch64") {
+        "uv.loong64"
     } else {
         "uv.arm64"
     }

@@ -13,11 +13,14 @@ pub fn overriden_rust_target_triple() -> Option<&'static str> {
 /// Usually None to use the host architecture, but:
 /// If MAC_X86 is set, an X86 wheel will be built on macOS ARM.
 /// If LIN_ARM64 is set, an ARM64 wheel will be built on Linux AMD64.
+/// If LIN_LOONG64 is set, a LoongArch64 wheel will be built on Linux AMD64.
 pub fn overriden_python_wheel_platform() -> Option<Platform> {
     if env::var("MAC_X86").is_ok() {
         Some(Platform::MacX64)
     } else if env::var("LIN_ARM64").is_ok() {
         Some(Platform::LinuxArm)
+    } else if env::var("LIN_LOONG64").is_ok() {
+        Some(Platform::LinuxLoong64)
     } else {
         None
     }
