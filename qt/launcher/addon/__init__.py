@@ -12,8 +12,7 @@ from typing import Any
 
 from anki.utils import pointVersion
 from aqt import mw
-from aqt.qt import QAction
-from aqt.utils import askUser, is_mac, is_win, showInfo
+from aqt.utils import is_mac, is_win, showInfo
 
 
 def launcher_executable() -> str | None:
@@ -112,12 +111,6 @@ def update_and_restart() -> None:
     mw.app.quit()
 
 
-def confirm_then_upgrade():
-    if not askUser("Change to a different Anki version?"):
-        return
-    update_and_restart()
-
-
 # return modified command array that points to bundled command, and return
 # required environment
 def _packagedCmd(cmd: list[str]) -> tuple[Any, dict[str, str]]:
@@ -165,11 +158,6 @@ def setup():
         return
     if not launcher_executable():
         return
-
-    # Add action to tools menu
-    action = QAction("Upgrade/Downgrade", mw)
-    action.triggered.connect(confirm_then_upgrade)
-    mw.form.menuTools.addAction(action)
 
     # Monkey-patch audio tools to use anki-audio
     if is_win or is_mac:

@@ -526,7 +526,7 @@ class AnkiQt(QMainWindow):
             if onsuccess:
                 onsuccess()
             if not self.safeMode:
-                self.maybe_check_for_addon_updates(self.setup_auto_update)
+                self.maybe_check_for_addon_updates()
 
         last_day_cutoff = self.col.sched.day_cutoff
 
@@ -1424,8 +1424,6 @@ title="{}" {}>{}</button>""".format(
     ##########################################################################
 
     def setupMenus(self) -> None:
-        from aqt.package import launcher_executable
-
         m = self.form
 
         # File
@@ -1455,12 +1453,6 @@ title="{}" {}>{}</button>""".format(
         qconnect(m.actionCreateFiltered.triggered, self.onCram)
         qconnect(m.actionEmptyCards.triggered, self.onEmptyCards)
         qconnect(m.actionNoteTypes.triggered, self.onNoteTypes)
-        qconnect(m.action_upgrade_downgrade.triggered, self.on_upgrade_downgrade)
-        qconnect(m.action_check_for_updates.triggered, self.on_check_for_updates)
-        if launcher_executable():
-            m.action_check_for_updates.setVisible(False)
-        else:
-            m.action_upgrade_downgrade.setVisible(False)
         qconnect(m.actionPreferences.triggered, self.onPrefs)
 
         # View
